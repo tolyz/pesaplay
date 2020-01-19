@@ -1,3 +1,5 @@
 /.vs
 /PesaPlay/bin
 /PesaPlay/obj
+/DataApiTests/bin
+/DataApiTests/obj
