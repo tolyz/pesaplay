@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System.Collections.Generic;
 
 namespace SecData.Models
 {
@@ -37,5 +38,6 @@ namespace SecData.Models
         [JsonProperty("linkToFilingDetails")]
         public string LinkToFilingDetails { get; set; }
 
+        public List<InfoTable> InfoTables { get; set; }
     }
 }
