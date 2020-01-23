@@ -34,6 +34,7 @@ namespace SecData
 
         // query api docs: https://sec-api.io/docs#query-examples
         // all the form types: https://sec-api.io/#list-of-sec-form-types
+        // cik to company name associations: https://www.sec.gov/files/company_tickers.json
 
         public async Task<QueryResponse> DownloadData(DateTime startDate, DateTime endDate, string formType, int paginationStart = 0, int count = 10)
         {
