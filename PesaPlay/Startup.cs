@@ -12,6 +12,7 @@ using PesaPlay.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using SecData;
 
 namespace PesaPlay
 {
@@ -30,8 +31,12 @@ namespace PesaPlay
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
+
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+
+            services.AddDbContext<FilingsDbContext>(options =>  options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
             services.AddControllersWithViews();
             services.AddRazorPages();
         }
@@ -39,7 +44,7 @@ namespace PesaPlay
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
+            if (env.IsDevelopment() || env.IsStaging())
             {
                 app.UseDeveloperExceptionPage();
                 app.UseDatabaseErrorPage();

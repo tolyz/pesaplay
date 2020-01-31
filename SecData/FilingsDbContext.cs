@@ -7,9 +7,9 @@ namespace SecData
     {
         public FilingsDbContext(DbContextOptions<FilingsDbContext> options) : base(options) { }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            base.OnModelCreating(modelBuilder);
+            base.OnConfiguring(optionsBuilder);
         }
 
         public DbSet<Fund> Funds { get; set; }

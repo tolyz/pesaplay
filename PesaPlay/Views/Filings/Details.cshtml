@@ -1,0 +1,36 @@
+﻿@model SecData.Models.Db.Filing
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Filing</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Cik)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Cik)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FileDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FileDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FormType)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FormType)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
